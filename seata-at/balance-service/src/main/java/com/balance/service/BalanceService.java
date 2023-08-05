@@ -1,9 +1,9 @@
-package com.seata.example.service;
+package com.balance.service;
 
+import com.balance.dao.BalanceDao;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
-import com.seata.example.dao.BalanceDao;
-import com.seata.example.entity.Balance;
+import com.balance.entity.Balance;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

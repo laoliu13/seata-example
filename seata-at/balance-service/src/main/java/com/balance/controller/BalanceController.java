@@ -1,6 +1,6 @@
-package com.seata.example.controller;
+package com.balance.controller;
 
-import com.seata.example.service.BalanceService;
+import com.balance.service.BalanceService;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

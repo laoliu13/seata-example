@@ -1,4 +1,4 @@
-package com.seata.example.entity;
+package com.balance.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 
