@@ -1,21 +1,14 @@
-package com.order.entity;
+package com.balance.dto;
 
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.math.BigDecimal;
 
-
-/**
- * 订单表
- */
-@TableName("order_table")
-public class Order {
+public class BalanceDto {
 
     /**
      * 主键
      */
-    @TableId
     private String fdId;
     /**
      * 用户id

@@ -1,5 +1,6 @@
 package com.balance.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.math.BigDecimal;
@@ -13,6 +14,7 @@ public class Balance {
     /**
      * 主键
      */
+    @TableId
     private String fdId;
     /**
      * 用户id

@@ -11,7 +11,6 @@ import javax.annotation.Resource;
 import java.math.BigDecimal;
 
 @Service
-@Transactional(rollbackFor = Exception.class)
 public class BalanceService {
 
     @Resource
@@ -20,14 +19,10 @@ public class BalanceService {
     /**
      * 扣减余额
      */
+    @Transactional(rollbackFor = Exception.class)
     public void deduct(String userId, BigDecimal count) {
         // 根据用户id  查询出用户余额
-        QueryWrapper<Balance> wrapper = new QueryWrapper<>();
-        Balance balance = new Balance();
-        balance.setUserId(userId);
-        wrapper.setEntity(balance);
-
-        balance = balanceDao.selectOne(wrapper);
+        Balance balance = getByUserId(userId);
 
         // 判断是否可以扣减
         if (null != balance && balance.getCount().subtract(count).intValue() < 0) {
@@ -38,6 +33,22 @@ public class BalanceService {
         balance.setCount(balance.getCount().subtract(count));
         balanceDao.updateById(balance);
 
+    }
+
+    /**
+     * 根据用户id查询用户余额
+     * @param userId
+     * @return
+     */
+    public Balance getByUserId(String userId) {
+        // 根据用户id  查询出用户余额
+        QueryWrapper<Balance> wrapper = new QueryWrapper<>();
+        Balance balance = new Balance();
+        balance.setUserId(userId);
+        wrapper.setEntity(balance);
+
+        balance = balanceDao.selectOne(wrapper);
+        return balance;
     }
 
     public void insert(String userId, BigDecimal count) {
